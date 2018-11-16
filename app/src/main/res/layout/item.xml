@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="128dp"
+        android:layout_margin="5dp">
+
+    <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        <ImageView
+                android:id="@+id/row_img"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_margin="8dp"
+                android:adjustViewBounds="true"
+                android:layout_centerVertical="true"
+                tools:src="@drawable/ic_launcher_background"
+                android:contentDescription="Image"/>
+
+        <TextView
+                android:id="@+id/row_tv_title"
+                android:layout_width="match_parent"
+                android:layout_toEndOf="@+id/row_img"
+                android:maxLines="2"
+                android:ellipsize="end"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                tools:text="Урок по Jsoup - Now Android"
+                android:textStyle="bold"/>
+
+        <TextView
+                android:id="@+id/row_tv_description"
+                android:layout_width="match_parent"
+                tools:text="По просьбе одного из зрителя актуализирую информацию по работе с jsoup"
+                android:maxLines="2"
+                android:ellipsize="end"
+                android:layout_alignStart="@id/row_tv_title"
+                android:layout_marginTop="5dp"
+                android:layout_below="@+id/row_tv_title"
+                android:layout_height="wrap_content"/>
+
+        <TextView
+                android:id="@+id/row_tv_additional_info"
+                android:layout_width="wrap_content"
+                tools:text="12.11.2018 | Подробнее"
+                android:textSize="12sp"
+                android:layout_alignBottom="@+id/row_img"
+                android:layout_alignStart="@id/row_tv_title"
+                android:layout_height="wrap_content"/>
+    </RelativeLayout>
+
+</android.support.v7.widget.CardView>
