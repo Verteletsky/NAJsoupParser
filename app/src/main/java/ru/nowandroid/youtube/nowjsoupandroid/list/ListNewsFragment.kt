@@ -4,6 +4,7 @@ import android.arch.lifecycle.ViewModelProviders
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v7.widget.LinearLayoutManager
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -12,7 +13,6 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import org.jsoup.Jsoup
-
 import ru.nowandroid.youtube.nowjsoupandroid.R
 import java.io.IOException
 
@@ -53,38 +53,39 @@ class ListNewsFragment : Fragment() {
     private fun getData() {
         try {
             val document = Jsoup.connect(url).get()
-            val element = document.select("div[class=btc_block-1]")
+            val elements = document.select("div[class=btc_block-1]")
 
-            for (i in 0 until element.size) {
-                val title = element.select("div[class=btc_block-1_1 btc_h]")
+            for (i in 0 until elements.size) {
+                val title = elements.select("div[class=btc_block-1_1 btc_h]")
                     .select("a")
                     .eq(i)
                     .text()
 
-                val desc = element.select("div[class=btc_block-1_2]")
-                    .select("btc_p")
-                    .eq(i)
-                    .text()
+                val description =
+                    elements.select("div[class=btc_block-1_2]")
+                        .select("p[class=btc_p]")
+                        .eq(i)
+                        .text()
 
                 val linkImage =
                     document.baseUri() +
-                            element.select("div[class=btc_block-1_2]")
+                            elements.select("div[class=btc_block-1_2]")
                                 .select("img")
                                 .eq(i)
                                 .attr("src")
 
-                val additionalInfo = element.select("div[class=btc_block-1_2]")
-                    .select("btc_p btc_inf")
+                val additionalInfo = elements.select("div[class=btc_block-1_2]")
+                    .select("p[class=btc_p btc_inf]")
                     .eq(i)
                     .text()
 
-                listNews.add(News(title, desc, linkImage, additionalInfo))
+                listNews.add(News(title, description, linkImage, additionalInfo))
             }
             GlobalScope.launch(Dispatchers.Main) {
                 adapter.set(listNews)
             }
         } catch (e: IOException) {
-
+            Log.e("TEST) exception", e.message.toString())
         }
     }
 
