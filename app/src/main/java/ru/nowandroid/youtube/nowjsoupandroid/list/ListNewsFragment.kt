@@ -79,7 +79,14 @@ class ListNewsFragment : Fragment() {
                     .eq(i)
                     .text()
 
-                listNews.add(News(title, description, linkImage, additionalInfo))
+                val linkDetails =
+                    document.baseUri() +
+                    elements.select("div[class=btc_block-1_2]")
+                        .eq(i)
+                        .select("a")
+                        .attr("href")
+
+                listNews.add(News(title, description, linkImage, additionalInfo, linkDetails))
             }
             GlobalScope.launch(Dispatchers.Main) {
                 adapter.set(listNews)

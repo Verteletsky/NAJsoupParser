@@ -7,5 +7,16 @@
 
     <fragment android:id="@+id/listNewsFragment"
               android:name="ru.nowandroid.youtube.nowjsoupandroid.list.ListNewsFragment"
-              android:label="list_news_fragment" tools:layout="@layout/list_news_fragment"/>
+              android:label="Новости Волжского" tools:layout="@layout/list_news_fragment">
+        <action android:id="@+id/action_listNewsFragment_to_detailsNewsFragment"
+                app:destination="@id/detailsNewsFragment"/>
+    </fragment>
+    <fragment android:id="@+id/detailsNewsFragment"
+              android:name="ru.nowandroid.youtube.nowjsoupandroid.details.DetailsNewsFragment"
+              android:label="Детали" tools:layout="@layout/details_news_fragment">
+        <argument
+                android:name="link"
+                app:argType="string"
+                android:defaultValue="link"/>
+    </fragment>
 </navigation>
