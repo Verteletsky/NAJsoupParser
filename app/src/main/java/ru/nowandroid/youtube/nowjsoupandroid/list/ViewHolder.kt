@@ -21,7 +21,7 @@ class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         itemView.setOnClickListener {
             itemView
                 .findNavController()
-                .navigate(ListNewsFragmentDirections.actionListNewsFragmentToDetailsNewsFragment().setLink(link))
+                .navigate(ListNewsFragmentDirections.actionListNewsFragmentToDetailsNewsFragment(link))
         }
     }
 

@@ -1,15 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:context=".details.DetailsNewsFragment">
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="8dp"
+    tools:context=".details.DetailsNewsFragment">
 
-    <TextView
-            android:id="@+id/link"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="Hello"/>
+  <TextView
+      android:id="@+id/det_title"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      tools:text="В Волжском разыскивают водителя, сбившего пешехода на «зебре»" />
 
-</FrameLayout>
+  <ImageView
+      android:id="@+id/det_main_photo"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="8dp"
+      android:maxHeight="214dp"
+      android:scaleType="centerCrop"
+      tools:src="@drawable/ic_launcher_background" />
+
+  <TextView
+      android:id="@+id/det_description"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="8dp"
+      tools:text="Накануне, 7 декабря, в Волжском неизвестный водитель совершил наезд на пешехода.
+
+Как сообщили Волжский.ру в ОГИБДД города Волжского, ДТП произошло в пятницу в промежуток времени между 17.30 — 17.45 часов. На нерегулируемом пешеходном переходе около дома на улице Пионерская, 3б под колесами неустановленного автомобиля пострадала 30-летняя женщина. С ушибами она была госпитализирована в горбольницу.
+
+Очевидцев произошедшего просят сообщить информацию по телефонам: 58-22-11 (дежурная часть), 56-96-29 (отдел розыска)." />
+
+
+</LinearLayout>

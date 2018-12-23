@@ -16,7 +16,6 @@
               android:label="Детали" tools:layout="@layout/details_news_fragment">
         <argument
                 android:name="link"
-                app:argType="string"
-                android:defaultValue="link"/>
+                app:argType="string"/>
     </fragment>
 </navigation>
